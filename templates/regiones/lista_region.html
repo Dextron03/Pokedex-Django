@@ -1,0 +1,71 @@
+{% extends "../layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+{% endblock head %}
+
+{% block title %}Regiones{% endblock title %}
+
+{% block content %}
+    {% load static %}
+    <div class="container mt-4">
+        <h1 class="text-center">Bienvenido Entrenador</h1>
+        <p class="text-center">¡Bienvenido a la Pokedex! Explora el fascinante mundo de los Pokémon, descubre sus habilidades únicas,
+            tipos y datos interesantes. ¡Atrévete a sumergirte en esta aventura de conocimiento y conviértete en
+            un maestro Pokémon!</p>
+        
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-3">
+                <a href="{% url 'add_region' %}" class="btn btn-success btn-lg" style="text-decoration:none;">Nueva Región</a>
+            </div>
+        </div>
+
+        <div class="row">
+            {% for reg in region %}
+                <div class="col-md-3 mb-4">
+                    <div class="card pokemon-card animate__animated animate__fadeIn">
+                        <h5 class="card-title text-center">{{ reg.name_region }}</h5>
+                        <div class="d-flex justify-content-between">
+                            {% comment %} Botón para la ventana modal {% endcomment %}                                
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalId{{ reg.id }}"><i class="bi bi-trash-fill"></i></button>
+                            
+                            {% comment %} Modal {% endcomment %}
+                            <div class="modal fade" id="modalId{{ reg.id }}" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="modalTitleId">
+                                                <img src="{% static 'img/iconos/pokebola.png' %}" alt="pokeball"> Eliminar Región
+                                            </h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+                                        </div>
+                                        <div class="modal-body">¿Estás seguro de que quieres eliminar a <strong>{{ reg.name_region }}</strong>?</div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                            <a href="{% url 'delete_region' id=reg.id %}" class="btn btn-danger">Aceptar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                                    
+                            <a href="{% url 'edit_region' id=reg.id %}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock scripts %}

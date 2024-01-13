@@ -1,0 +1,41 @@
+{% extends "../layouts/base.html" %}
+
+{% block title %}New Pokemon{% endblock title %}
+
+{% block content %}
+
+    <div class="container mt-4">
+        <div class="card pokedex-card">
+            <div class="card-header pokedex-header">
+                <h1 class="text-center">Crea un nuevo pokemon</h1>
+                <p class="text-center">
+                    ¡Bienvenido a la Pokedex! Explora el apasionante mundo de la gestión de regiones y añade nuevas áreas
+                     a nuestra base de datos. Descubre los detalles únicos, características y datos fascinantes de cada región.
+                      ¡Atrévete a sumergirte en esta emocionante aventura de conocimiento y conviértete en un maestro Pokémon,
+                       contribuyendo a expandir nuestra colección y enriquecer la experiencia para todos los entrenadores!
+                </p>
+            </div>
+
+            {% if messages %}
+                {% for message in messages %}
+                        {{ message }}
+                {% endfor %}
+            {% endif %}
+
+            <div class="card-body p-4">
+                <form action="{% url 'add_region' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="mb-4">
+                        {{ form.as_p }}
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Agregar">
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+{% block scripts %}
+    
+{% endblock scripts %}

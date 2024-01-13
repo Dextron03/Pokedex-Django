@@ -16,13 +16,13 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#" style="margin-right: 20px;">Home</a>
+            <a class="nav-link" href="{% url 'home' %}" style="margin-right: 20px;">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'add_pokemon' %}" style="margin-right: 20px;">Pokémon</a>
+            <a class="nav-link" href="{% url 'pokelist' %}" style="margin-right: 20px;">Pokémon</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" style="margin-right: 20px;">Regiones</a>
+            <a class="nav-link" href="{% url 'regiones' %}" style="margin-right: 20px;">Regiones</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Tipos</a>
