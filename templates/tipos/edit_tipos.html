@@ -1,0 +1,46 @@
+{% extends "../layouts/base.html" %}
+
+{% block title %}Tipos{% endblock title %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <div class="card pokedex-card">
+        <div class="card-header pokedex-header">
+            <h1 class="text-center">Crea un nuevo tipo</h1>
+            <p class="text-center">
+                ¡Bienvenido al pokedit! Edita la información de tu Pokémon existente o crea uno nuevo
+                Descubre el emocionante mundo de la gestión de Pokémon y añade nuevas criaturas a nuestra
+                base de datos. Explora las habilidades únicas, tipos y datos fascinantes de cada Pokémon.
+                ¡Atrévete a sumergirte en esta emocionante aventura de conocimiento y conviértete en un 
+                maestro Pokémon, contribuyendo a expandir nuestra colección y enriquecer la experiencia 
+                para todos los entrenadores.!</p>
+        </div>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="card-body p-4">
+            <form action="{% url 'edit_kind' id=id %}" method="POST">
+                {% csrf_token %}
+                <div class="mb-4">
+                    {{ form.name_kind.label_tag }}
+                    {{ form.name_kind }}
+                </div>
+                <input type="submit" class="btn btn-primary" value="Agregar">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block scripts %}
+    
+{% endblock scripts %}

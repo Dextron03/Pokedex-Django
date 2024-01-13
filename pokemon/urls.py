@@ -11,5 +11,11 @@ urlpatterns = [
     path('regiones/', views.regionlist, name="regiones"),
     path('add_region/', views.add_region, name="add_region"),
     path('delete_region/<int:id>/',views.delete_region, name="delete_region"),
-    path('edit_region/<int:id>/', views.edit_region, name='edit_region')
+    path('edit_region/<int:id>/', views.edit_region, name='edit_region'),
+    #Tipos
+    path("kinds/", views.kinds, name="kinds"),
+    path("add_kinds/", views.add_kind, name="add_kind"),
+    path("edit_kinds/<int:id>/", views.edit_kind, name="edit_kind"),
+    path("delete_kind/<int:id>/", views.delete_kind, name="delete_kind")
+    
 ]

@@ -104,3 +104,43 @@ def delete_region(request, id):
         return redirect("regiones")
     
 # ! TIPOS
+def kinds(request):
+    
+    kinds_query = models.Kind.objects.all()
+    
+    return render(request, "tipos/lista_tipos.html", {"kinds":kinds_query})
+
+def add_kind(request):
+    
+    if request.method == "GET":
+        form_kind = form.KindForm()
+        return render(request, "tipos/tiposform.html", {"form":form_kind})
+    
+    if request.method == "POST":
+        form_kind = form.KindForm(request.POST)
+        if form_kind.is_valid():
+            form_kind.save()
+            messages.success(request, "El tipo a sido creado")
+        return render(request, "tipos/tiposform.html", {"form":form_kind})
+    
+def edit_kind(request, id):
+    kind = models.Kind.objects.get(id=id)
+    if request.method == "GET":
+        form_kind = form.KindForm(instance=kind)
+        return render(request, "tipos/edit_tipos.html", {"form":form_kind, "id":id})
+    
+    if request.method == "POST":
+        form_kind = form.KindForm(request.POST, instance=kind)
+        if form_kind.is_valid():
+            form_kind.save()
+            messages.success(request, f"Se a actulizado el tipo {kind.name_kind}.")
+            return redirect("kinds")
+
+def delete_kind(request, id):
+    kind = models.Kind.objects.get(id=id)
+    if request.method == "GET":
+        kind.delete()
+        messages.success(request, "El tipo se a borrado con exito.")
+        return redirect("kinds")
+        
+

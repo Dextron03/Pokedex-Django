@@ -21,6 +21,7 @@ class PokemonForm(forms.ModelForm):
         }
 
 
+
 class KindForm(forms.ModelForm):
     class Meta:
         model = models.Kind
@@ -43,8 +44,12 @@ class RegionForm(forms.ModelForm):
             "name_region": "Region",
         }
         
+        error_messages = {
+            "name_region":{"required":""}
+        }
         
         widgets = {
             "name_region":forms.TextInput(attrs={"class":"form-control"}),
         }
+        
         
