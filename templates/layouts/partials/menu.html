@@ -1,33 +1,35 @@
 {% load static %}
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <!-- Logo y texto a la izquierda -->
-      <a class="navbar-brand" href="{% url 'home' %}">
-        <img src="{% static './img/logo-pokedex.png' %}" width="50" height="40" alt="Tu Logo">
-        PokeRD
-      </a>
-  
-      <!-- Botón para colapsar el menú en pantallas pequeñas -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <!-- Enlaces a la derecha con margen adicional -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#" style="margin-right: 20px;">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'add_pokemon' %}" style="margin-right: 20px;">Pokémon</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" style="margin-right: 20px;">Regiones</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Tipos</a>
-          </li>
-        </ul>
-      </div>
+        <!-- Logo y texto a la izquierda -->
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static './img/logo-pokedex.png' %}" width="50" height="40" alt="Tu Logo">
+            PokeRD
+        </a>
+
+        <!-- Botón para colapsar el menú en pantallas pequeñas -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Enlaces a la derecha con margen adicional -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}" style="margin-right: 20px;">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'pokelist' %}" style="margin-right: 20px;">Pokémon</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'regiones' %}" style="margin-right: 20px;">Regiones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'kinds' %}">Tipos</a>
+                </li>
+            </ul>
+        </div>
     </div>
-  </nav>
+</nav>
