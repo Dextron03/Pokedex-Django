@@ -8,30 +8,29 @@
 - [Información adicional](#información-adicional)
 - [Autor/es](#autores)
 
-
 ## Descripción y contexto
-PokeRD es un miniproyecto desarrollado en un lapso de tres días, concebido como una práctica para fortalecer habilidades en el desarrollo backend utilizando el framework Django. Este proyecto cuenta con funcionalidades clave que permiten a los usuarios agregar, editar y eliminar información relacionada con pokémons, incluyendo detalles sobre tipos y regiones.
+PokeRD es un miniproyecto desarrollado en un lapso de tres días, concebido como una práctica para fortalecer habilidades en el desarrollo backend utilizando el framework Django. Este proyecto cuenta con funcionalidades clave que permiten a los usuarios agregar, editar y eliminar información relacionada con Pokémon, incluyendo detalles sobre tipos y regiones.
 
 ## Guía de instalación
 
 ### Buscador:
-Este nos permitira buscar pokemons mediante su nombre. luego de haber buscado el pokemon que querias puedes darle al boton ***Ver Todos*** para volver a ver todos los pokemons.
+Este nos permitirá buscar Pokémon mediante su nombre. Luego de haber buscado el Pokémon que querías, puedes darle al botón ***Ver Todos*** para volver a ver todos los Pokémon.
 ![Buscador](./static/gifs/Buscador.gif)
 
 ### Filtrado por checkbox:
-Esta funcion nos permite filtrar los pokemons segun la region que se marque en el checkbox.(Puedes marcar mas de una region)
+Esta función nos permite filtrar los Pokémon según la región que se marque en el checkbox. (Puedes marcar más de una región)
 ![Checkbox](./static/gifs/Checkbox.gif)
 
-### Agregar Pokemon:
-![agregar](./static/gifs/agregar.gif)
+### Agregar Pokémon:
+![Agregar](./static/gifs/agregar.gif)
 
-### Editar Pokemon
+### Editar Pokémon:
 ![Editar](./static/gifs/editar.gif)
 
-### Eliminar Pokemon
-![Editar](./static/gifs/eliminar.gif)
+### Eliminar Pokémon:
+![Eliminar](./static/gifs/eliminar.gif)
 
-## Guia de Instalacion 
+## Guía de Instalación 
 La herramienta digital tiene varias dependencias esenciales que son necesarias para su correcto funcionamiento. A continuación, se proporciona una descripción de estas dependencias, incluyendo versiones, descripciones y comandos de instalación.
 
 1. **asgiref (v3.7.2):**
@@ -79,16 +78,15 @@ La herramienta digital tiene varias dependencias esenciales que son necesarias p
      pip install tzdata==2023.4
      ``` 
 
-6. **Instal las dependencias:**
+6. **Instala las dependencias:**
     ```bash
-     pip install > requirements.txt
+     pip install -r requirements.txt
      ``` 
 
 ## Información adicional
-Este proyecto esta contruido con la arquitectura MVT(Modelo Vista Template) esta es una variacion del MVC(Modelo Vista Controlador).
+Este proyecto está construido con la arquitectura MVT (Modelo Vista Template), una variación del MVC (Modelo Vista Controlador).
 
 ## Autor/es
 <img src="https://www.vectorlogo.zone/logos/instagram/instagram-icon.svg" width="12"> [Braily_rs35](https://www.instagram.com/braily_rs35/ "Braily_rs35")
 
 <img src="https://www.vectorlogo.zone/logos/gmail/gmail-icon.svg" width="14">  brailyrs03@gmail.com
-
