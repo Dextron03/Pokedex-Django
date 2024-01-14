@@ -1,18 +1,17 @@
 {% extends "../layouts/base.html" %}
 
-{% block title %}New Pokemon{% endblock title %}
+{% block title %}Nuevo Pokémon{% endblock title %}
 
 {% block content %}
-
     <div class="container mt-4">
         <div class="card pokedex-card">
             <div class="card-header pokedex-header">
-                <h1 class="text-center">Crea un nuevo pokemon</h1>
+                <h1 class="text-center">Crea un nuevo tipo de Pokémon</h1>
                 <p class="text-center">
-                    ¡Bienvenido a la Pokedex! Explora el apasionante mundo de la gestión de regiones y añade nuevas áreas
-                     a nuestra base de datos. Descubre los detalles únicos, características y datos fascinantes de cada región.
-                      ¡Atrévete a sumergirte en esta emocionante aventura de conocimiento y conviértete en un maestro Pokémon,
-                       contribuyendo a expandir nuestra colección y enriquecer la experiencia para todos los entrenadores!
+                    ¡Bienvenido a la Pokédex! Explora el apasionante mundo de la gestión de regiones y añade nuevas áreas
+                    a nuestra base de datos. Descubre los detalles únicos, características y datos fascinantes de cada región.
+                    ¡Atrévete a sumergirte en esta emocionante aventura de conocimiento y conviértete en un maestro Pokémon,
+                    contribuyendo a expandir nuestra colección y enriquecer la experiencia para todos los entrenadores!
                 </p>
             </div>
 
@@ -20,7 +19,7 @@
                 {% for message in messages %}
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         {{ message }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
                     </div>
                 {% endfor %}
             {% endif %}
@@ -36,7 +35,6 @@
             </div>
         </div>
     </div>
-
 {% endblock content %}
 
 {% block scripts %}

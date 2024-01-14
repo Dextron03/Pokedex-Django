@@ -3,67 +3,64 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-{% load static %}
+    {% load static %}
 
-<div class="container mt-4">
-    <h1>Bienvenido Entrenador</h1>
-    <p>¡Bienvenido a la Pokedex! Explora el fascinante mundo de los Pokémon, descubre sus habilidades únicas,
-        tipos y datos interesantes. ¡Atrévete a sumergirte en esta aventura de conocimiento y conviértete en
-        un maestro Pokémon!</p>
-  
-    {% comment %} ! Filtro de checkboxes{% endcomment %}
-    <div class="row">
-        <div class="col-md-3 mb-4">
-            <h5>Filtrar por:</h5>
-            <form action="{% url 'home' %}" method="GET">
-                {% for region in regions %}
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="regions" value="{{ region.id }}" id="region{{ region.id }}">
-                        <label class="form-check-label" for="region{{ region.id }}">{{ region.name_region }}</label>
-                    </div>
-                {% endfor %}
-                <input type="submit" class="btn btn-primary mt-3" name="btn-check" value="Buscar">
-            </form>
-        </div>
-        
-        <div class="col-md-9">
-            {% comment %} ! Buscador de pokemones {% endcomment %}
-            {% include "./layouts/partials/buscador.html" %}
-            <a href="{% url 'home' %}" style="text-decoration:none;">Ver Todos</a>
+    <div class="container mt-4">
+        <h1>Bienvenido Entrenador</h1>
+        <p>¡Bienvenido a la Pokédex! Explora el fascinante mundo de los Pokémon, descubre sus habilidades únicas,
+            tipos y datos interesantes. ¡Atrévete a sumergirte en esta aventura de conocimiento y conviértete en
+            un maestro Pokémon!</p>
 
-            <div class="row">
-                {% for poke in pokemon %}
-                    <div class="col-md-4 mb-4">
-                        <div class="card pokemon-card animate__animated animate__fadeIn">
-                            <h5 class="card-title text-center">{{ poke.name }}</h5>
-                            <img src="{{ poke.img.url }}" class="card-img-top" alt="{{ poke.name }}">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    <strong>Región: </strong> {{ poke.id_region }}
-                                    {% for region in poke.id_region.all %}
-                                        {{ region.name_region }}{% if not forloop.last %}, {% endif %}
-                                    {% endfor %}
-                                </p>
-                                <p class="card-text">
-                                    <strong>Tipo:</strong>
-                                    {% for kind in poke.id_kind.all %}
-                                        {{ kind.name_kind }}{% if not forloop.last %}, {% endif %}
-                                    {% endfor %}
-                                </p>
-                            </div>
-                        </div> 
-                    </div>
+        {% comment %} Filtro de checkboxes {% endcomment %}
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <h5>Filtrar por:</h5>
+                <form action="{% url 'home' %}" method="GET">
+                    {% for region in regions %}
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="regions" value="{{ region.id }}" id="region{{ region.id }}">
+                            <label class="form-check-label" for="region{{ region.id }}">{{ region.name_region }}</label>
+                        </div>
+                    {% endfor %}
+                    <input type="submit" class="btn btn-primary mt-3" name="btn-check" value="Buscar">
+                </form>
+            </div>
+
+            <div class="col-md-9">
+                {% comment %} Buscador de Pokémon {% endcomment %}
+                {% include "./layouts/partials/buscador.html" %}
+                <a href="{% url 'home' %}" style="text-decoration:none;">Ver Todos</a>
+
+                <div class="row">
+                    {% for poke in pokemon %}
+                        <div class="col-md-4 mb-4">
+                            <div class="card pokemon-card animate__animated animate__fadeIn">
+                                <h5 class="card-title text-center">{{ poke.name }}</h5>
+                                <img src="{{ poke.img.url }}" class="card-img-top" alt="{{ poke.name }}">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <strong>Región: </strong> {{ poke.id_region }}
+                                        {% for region in poke.id_region.all %}
+                                            {{ region.name_region }}{% if not forloop.last %}, {% endif %}
+                                        {% endfor %}
+                                    </p>
+                                    <p class="card-text">
+                                        <strong>Tipo:</strong>
+                                        {% for kind in poke.id_kind.all %}
+                                            {{ kind.name_kind }}{% if not forloop.last %}, {% endif %}
+                                        {% endfor %}
+                                    </p>
+                                </div>
+                            </div> 
+                        </div>
                     {% endfor %}
                 </div>
-          </div>
-      </div>
-  </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock content %}
 
-
-
 {% block scripts %}
-
 
 {% endblock scripts %}
